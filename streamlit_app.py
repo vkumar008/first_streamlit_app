@@ -60,6 +60,6 @@ streamlit.text("What fruit you would like to add ")
 fruits_added=streamlit.text_input("Placeholder for the other text input widget",
         "This is a placeholder",
         key="placeholder",)
-streamlit.dataframe(fruits_added)
+streamlit.text(fruits_added)
 
 
