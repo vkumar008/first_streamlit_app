@@ -61,7 +61,7 @@ try:
                 my_data_rows = my_cur.fetchall()
                 streamlit.text("The fruit load list containts ")
                 streamlit.dataframe(my_data_rows)
-                my_cur.execute("insert into fruit_load_list values(fruit_choice)")
+                my_cur.execute("insert into fruit_load_list values('"+fruit_choice+"')")
 except URLError as e:
         streamlit.error()
 
