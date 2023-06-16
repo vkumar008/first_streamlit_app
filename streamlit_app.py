@@ -39,3 +39,8 @@ streamlit.write('The user entered ', fruit_choice)
 fruiturl = "https://fruityvice.com/api/fruit/"+fruit_choice
 
 fruityvice_selectedresponse = requests.get(fruiturl)
+
+fruityvice_selectedresponse_normalized = pandas.json_normalize(fruityvice_selectedresponse.json())
+streamlit.dataframe(fruityvice_selectedresponse_normalized)
+
+
