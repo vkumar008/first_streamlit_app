@@ -48,24 +48,24 @@ try:
                 fruityvice_selectedresponse = requests.get(fruiturl)
                 fruityvice_selectedresponse_normalized = pandas.json_normalize(fruityvice_selectedresponse.json())
                 streamlit.dataframe(fruityvice_selectedresponse_normalized)
-        except URLError as e:
-                streamlit.error()
+except URLError as e:
+        streamlit.error()
 
-        my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-        my_cur = my_cnx.cursor()
-        my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
-        my_data_row = my_cur.fetchone()
-        streamlit.text("Hello from Snowflake:")
-        streamlit.text(my_data_row)
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cur = my_cnx.cursor()
+my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
+my_data_row = my_cur.fetchone()
+streamlit.text("Hello from Snowflake:")
+streamlit.text(my_data_row)
 
-        my_cur.execute("SELECT * from fruit_load_list")
-        my_data_rows = my_cur.fetchall()
-        streamlit.text("The fruit load list containts ")
-        streamlit.dataframe(my_data_rows)
+my_cur.execute("SELECT * from fruit_load_list")
+my_data_rows = my_cur.fetchall()
+streamlit.text("The fruit load list containts ")
+streamlit.dataframe(my_data_rows)
 
-        streamlit.text("")
-        fruits_added=streamlit.text_input("What fruit you would like to add ",         "Add Fruit",         key="placeholder",)
-        streamlit.text('Thanks for adding ',fruits_added)
-        my_cur.execute("insert into fruit_load_list values(' from streamlit')")
+streamlit.text("")
+fruits_added=streamlit.text_input("What fruit you would like to add ",         "Add Fruit",         key="placeholder",)
+streamlit.text('Thanks for adding ',fruits_added)
+my_cur.execute("insert into fruit_load_list values(' from streamlit')")
 
 
