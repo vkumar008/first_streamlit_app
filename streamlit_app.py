@@ -37,10 +37,8 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalized)
 
 try:
-        fruits_added=streamlit.text_input('What fruit would you like information about?',         "Add Fruit",         key="placeholder",)
-        
-        
-        fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+        fruit_choice=streamlit.text_input('What fruit would you like information about?',         "Add Fruit",         key="placeholder",)
+#         fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
         if not fruit_choice: 
                 streamlit.error('Please enter fruit for information ')
         else: 
