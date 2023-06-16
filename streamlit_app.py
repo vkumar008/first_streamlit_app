@@ -56,5 +56,10 @@ my_data_rows = my_cur.fetchall()
 streamlit.text("The fruit load list containts ")
 streamlit.dataframe(my_data_rows)
 
+streamlit.text("What fruit you would like to add ")
+fruits_added=streamlit.text_input("Placeholder for the other text input widget",
+        "This is a placeholder",
+        key="placeholder",)
+streamlit.dataframe(fruits_added)
 
 
